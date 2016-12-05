@@ -8,3 +8,11 @@ td.playlist-table{
 video.media-player {
     width: 100%;
 }
+
+h3.playlist-title {
+    display:inline;
+}
+
+span.button-group {
+    float:right;
+}
