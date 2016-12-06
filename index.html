@@ -15,13 +15,13 @@
         <table>
             <tr>
                 <td width="25%" class="playlist-table">
-                    <div>
+                    <div class="title-bar">
                     <h3 class="playlist-title">Custom title</h3> 
                     <span class='button-group'>
                         <span class="glyphicon glyphicon-plus"></span>
                     </span>
                     </div>
-                    <table class="table music-playlist">
+                    <table class="table playlist music-playlist">
                         <thead>
                         <tr>
                         <td>Track</td>
@@ -34,6 +34,7 @@
                 <td width="75%" rowspan="2">
                     <!-- MP4 not fully supported on firefox which is bs use OGG files for now-->
                     <video class="media-player" controls>
+                        <source src="media/video/mov_bbb.mp4" type="video/mp4">
                         <source src="media/video/mov_bbb.ogg" type="video/ogg">
                         Your browser does not support HTML5 video.
                     </video>
@@ -41,13 +42,13 @@
             </tr>
             <tr>
                 <td class="playlist-table">
-                    <div>
+                    <div class="title-bar">
                         <h3 class="playlist-title">Custom title</h3> 
                         <span class='button-group'>
                             <span class="glyphicon glyphicon-plus"></span>
                         </span>
                     </div>
-                    <table class="table video-playlist">
+                    <table class="table playlist video-playlist">
                         <thead>
                         <tr>
                         <td>Name</td>

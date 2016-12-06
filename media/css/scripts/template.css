@@ -1,12 +1,30 @@
+body {
+    background-color:rgb(77, 77, 255);
+}
+div.title-bar {
+    background-color:rgb(0, 138, 230);
+    color:white;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+td.playlist-table {
+    background-color:rgb(77, 255, 195);
+}
+table.table.playlist {
+    background-color:transparent;
+}
+
+/*CSS for actual content inside table*/
+table.table.playlist td {
+    background-color:rgb(77, 255, 195);
+}
 .main-container {
     width:100%;
 }
 
-td.playlist-table{
-}
-
 video.media-player {
     width: 100%;
+    margin-top:-2%;
 }
 
 h3.playlist-title {
@@ -16,3 +34,4 @@ h3.playlist-title {
 span.button-group {
     float:right;
 }
+
