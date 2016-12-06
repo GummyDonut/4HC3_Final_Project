@@ -10,14 +10,24 @@ div.title-bar {
 td.playlist-table {
     background-color:rgb(77, 255, 195);
 }
-table.table.playlist {
-    background-color:transparent;
-}
 
 /*CSS for actual content inside table*/
+table.table.playlist {
+    background-color:transparent;
+    border:none;
+    margin:0;
+}
+
 table.table.playlist td {
     background-color:rgb(77, 255, 195);
+    border-left:1px solid black;
+    border-bottom:none;
+    border-top:none;
 }
+table.table.playlist thead td {
+    border-bottom: 1px solid black;
+}
+/* Playlist content end here*/
 .main-container {
     width:100%;
 }
