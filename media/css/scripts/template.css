@@ -9,22 +9,58 @@
     transition: 0.2s
 }
 
+/* Playlist buttons */
 #add-music-playlist-button{
     width:45px;
     height:27px;
+    margin-bottom:-0.5em;
+    margin-right:0.25em;
 }
 
+#fullscreen-music-table-button {
+    width:29px;
+    height:27px;
+    margin-right:0.5em;
+}
+
+#add-music-button {
+    font-size:1.75em;
+    vertical-align:middle;
+    margin-right:0.25em;
+}
+
+#add-video-playlist-button{
+    width:45px;
+    height:27px;
+    margin-bottom:-0.5em;
+    margin-right:0.25em;
+}
+
+#fullscreen-video-table-button {
+    width:29px;
+    height:27px;
+    margin-right:0.5em;
+}
+
+#add-video-button {
+    font-size:1.75em;
+    vertical-align:middle;
+    margin-right:0.25em;
+}
+/* Playlist buttons end*/
+
+
 body {
-    background-color:rgb(77, 77, 255);
+    background-color:rgb(0, 132, 166);
 }
 div.title-bar {
-    background-color:rgb(0, 138, 230);
+    background-color:rgb(97, 148, 188);
     color:white;
     padding-top:1em;
     padding-bottom:1em;
 }
 td.playlist-table {
-    background-color:rgb(77, 255, 195);
+    background-color:rgb(208, 234, 255);
 }
 
 
@@ -36,7 +72,7 @@ table.table.playlist {
 }
 
 table.table.playlist td {
-    background-color:rgb(77, 255, 195);
+    background-color:rgb(208, 234, 255);
     border-left:1px solid black;
     border-bottom:none;
     border-top:none;
