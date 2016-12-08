@@ -4,7 +4,9 @@
     transform: scale(1.25);
     cursor:pointer;
 }
-
+.selected {
+    background-color:#acbad4;
+}
 .enlarge-button{
     transition: 0.2s
 }
@@ -58,6 +60,7 @@ div.title-bar {
     color:white;
     padding-top:1em;
     padding-bottom:1em;
+    padding-left:0.5em;
 }
 td.playlist-table {
     background-color:rgb(208, 234, 255);
@@ -71,8 +74,12 @@ table.table.playlist {
     margin:0;
 }
 
-table.table.playlist td {
+table.table.playlist tr{
     background-color:rgb(208, 234, 255);
+    cursor:pointer;
+}
+
+table.table.playlist td {
     border-left:1px solid black;
     border-bottom:none;
     border-top:none;
