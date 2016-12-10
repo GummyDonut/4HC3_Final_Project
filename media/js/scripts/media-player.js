@@ -40,7 +40,7 @@ function initMediaPlayer() {
 		console.log(mevent.button+' '+mevent.clientX+' '+mevent.clientY+' '+mevent.screenX+' '+mevent.screenY+' '+mevent.offsetX+' '+mevent.offsetY);
 
 		var duration = mediaPlayer.duration;
-		var currentTime = (duration * mevent.offsetX ) / 256;
+		var currentTime = (duration * mevent.offsetX ) / 1024;
 		mediaPlayer.currentTime = currentTime;
 
 	});
@@ -275,6 +275,23 @@ function rewind(rewindSpeed) {
 	rewindSpd = rewindSpeed;
 	intervalRewind = setTimeout(rewindplay, 30);
 }
+
+function fullScreen() {
+    if (!document.mozFullScreen && !document.webkitFullScreen) {
+      if (mediaPlayer.mozRequestFullScreen) {
+        mediaPlayer.mozRequestFullScreen();
+      } else {
+        mediaPlayer.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else {
+      if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else {
+        document.webkitCancelFullScreen();
+      }
+    }
+  }
+
 
 // media player needs to be resized on initialization otherwise it goes offscreen
 //$("video.media-player").height(window.innerHeight - 34);

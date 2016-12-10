@@ -16,6 +16,42 @@ h1 {
 	font-size:16px;
 	color:#333;
 }
+.media-fullscreen {
+ position:absolute;
+ top: 10px;
+ left: 10px;
+ background-color: #606060;
+border: none;
+}
+.media-replay-button {
+ position:absolute;
+ top: 10px;
+ left: 900px;
+ background-color: #606060;
+border: none;
+}
+
+.media-mute {
+ position:absolute;
+ top: 10px;
+ left: 80px;
+ background-color: #606060;
+border: none;
+}
+.media-inc-volume {
+ position:absolute;
+ top: 10px;
+ left: 150px;
+ background-color: #606060;
+border: none;
+}
+.media-dec-volume {
+ position:absolute;
+ top: 10px;
+ left: 210px;
+ background-color: #606060;
+border: none;
+}
 
 
 .media-reverse {
@@ -41,6 +77,7 @@ border: none;
  background-color: #606060;
 border: none;
 }
+
 
 
 
