@@ -23,10 +23,10 @@ h1 {
  background-color: #606060;
 border: none;
 }
-.media-replay-button {
+.media-replay {
  position:absolute;
  top: 10px;
- left: 900px;
+ left: 1200px;
  background-color: #606060;
 border: none;
 }
@@ -87,7 +87,7 @@ div.media-controls {
 	padding: 1px;
 	color: gray;
 	background-color: #606060;
-	padding: 20px;
+	padding: 35px;
 	position: relative;
 	margin: 0;
 }
