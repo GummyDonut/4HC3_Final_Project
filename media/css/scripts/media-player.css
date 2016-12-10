@@ -2,7 +2,7 @@
 body {
 	font-family:'verdana'; 
 	color: gray;
-	background-color: #cccbed;
+	background-color: #0084a6;
 }
 
 .media-waveform {
@@ -17,10 +17,42 @@ h1 {
 	color:#333;
 }
 
+
+.media-reverse {
+ position:absolute;
+ top: 10px;
+ left: 530px;
+ background-color: #606060;
+border: none;
+}
+
+.media-play {
+ position:absolute;
+ top: 10px;
+ left: 600px;
+ background-color: #606060;
+border: none;
+}
+
+.media-fastforward {
+ position:absolute;
+ top: 10px;
+ left: 670px;
+ background-color: #606060;
+border: none;
+}
+
+
+
 div.media-controls {
 	border: none;
 	display: flex;
 	padding: 1px;
+	color: gray;
+	background-color: #606060;
+	padding: 20px;
+	position: relative;
+	margin: 0;
 }
 
 .player-container {
@@ -43,11 +75,11 @@ div.media-controls {
 
 progress {
 	font-size:12px;
-	width:256px;
-	height:26px;
+	width:1024px;
+	height:10px;
 	border: 1px solid #000000;
-	margin-right:5px;
-	margin-left:5px;
+	margin-right:105px;
+	margin-left:105px;
 
 }
 progress::-moz-progress-bar { background:#ffffff; }
