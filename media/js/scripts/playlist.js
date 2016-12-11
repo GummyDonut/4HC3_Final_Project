@@ -113,10 +113,13 @@ $(document).ready(function(){
         // fullscreen table
         if ($("div.main-container").hasClass("table-fullscreen")) {
             $("#music-playlist-table").width(window.innerWidth-5)
+            $("#fullscreen-music-table-button").attr("src", "media/images/min.png")
         } else {
             $("#music-playlist-table").width(tableWidth);
+            $("#fullscreen-music-table-button").attr("src", "media/images/fullscreen.png")
         }
     });
+
     $("#fullscreen-video-table-button").on("click", function(){
         $("td.player-section").toggle("slow");
         $("#music-playlist-section").toggle("slow");
@@ -127,8 +130,10 @@ $(document).ready(function(){
         // fullscreen table
         if ($("div.main-container").hasClass("table-fullscreen")) {
             $("#video-playlist-table").width(window.innerWidth-5)
+            $("#fullscreen-video-table-button").attr("src", "media/images/min.png")
         } else {
             $("#video-playlist-table").width(tableWidth);
+            $("#fullscreen-video-table-button").attr("src", "media/images/fullscreen.png")
         }
 
     });
