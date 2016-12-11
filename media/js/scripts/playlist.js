@@ -6,8 +6,12 @@ var videoTable;
 function initPlaylistData() {
    
    // integrity check 
-   if (localStorage.getItem("Group7IntegrityCheck") == null)
+   if (localStorage.getItem("Group7IntegrityCheck") == null) {
         localStorage.clear();
+        localStorage.setItem("Playlist", '{"music":[], "video":[]}');
+        localStorage.setItem("Group7IntegrityCheck", "true");
+   }
+   
 }
 
 function initCatalogData() {
@@ -135,8 +139,34 @@ $(document).ready(function(){
             $("#video-playlist-table").width(tableWidth);
             $("#fullscreen-video-table-button").attr("src", "media/images/fullscreen.png")
         }
-
     });
+    
+    // add playlist event-listener 
+    $("#save-music-playlist").on("click", function(){
+        var playlist = JSON.parse(localStorage.getItem("Playlist"));
+        var input = $("#input-music-playlist").val();
+        var musicArray = [];
+        for (var i = 0; i < playlist.music.length; i++) {
+            musicArray.push(playlist.music[i].title);
+        }
+        if ((musicArray.length > 0) && musicArray.indexOf(input) > -1){
+            $("#error-p").remove();
+            $("#modal-add-music-playlist div.modal-div p").append("<p id='error-p' style='color:red;'>That video playlist name exists</p>");
+        }else {
+
+            // remove any errors
+            $("#error-p").remove();
+            playlist.music.push({
+                "title" : input
+            });
+
+            // trigger close
+            window.location.hash = "#close";
+        }
+        playlist = JSON.stringify(playlist);
+        localStorage.setItem("Playlist", playlist);
+        
+    })
 });
 
 $(window).resize(function(){
