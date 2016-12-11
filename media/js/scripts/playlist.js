@@ -1,18 +1,3 @@
-/*
-var musicData = [
-    {
-        "Track" : 'tuesday-song',
-        "Album" : 'Weekdays-album',
-        "Duration" : "20mins",
-    }
-]
-var videoData = [
-    {
-        "Name" : 'Name of video',
-        "Duration" : "20mins",
-    }
-]
-*/
 var musicData = [];
 var videoData = [];
 var musieTable;
@@ -102,6 +87,13 @@ $(document).ready(function(){
 		loadVideo(data.Track, 'media/music/'+data.Filename);
  	} );
 	
+    // on load update to fit into screen appropriately
+    $('#media-video').height(window.innerHeight -5);
 });
+
+$(window).resize(function(){
+    $("video.media-player").height(window.innerHeight - 5);
+});
+
  
 

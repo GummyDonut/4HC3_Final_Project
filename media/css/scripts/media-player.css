@@ -121,10 +121,10 @@ progress {
 }
 progress::-moz-progress-bar { background:#ffffff; }
 
-//progress::-webkit-progress-bar {
-//  background:#c3c3c3;
-//  color:#86c317;
-//}
+progress::-webkit-progress-bar {
+  background:#c3c3c3;
+  color:#86c317;
+}
 progress::-webkit-progress-value {
   background:#86c317;
   color:#ffffff;
