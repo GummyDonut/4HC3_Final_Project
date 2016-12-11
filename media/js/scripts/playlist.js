@@ -2,6 +2,14 @@ var musicData = [];
 var videoData = [];
 var musieTable;
 var videoTable;
+
+function initPlaylistData() {
+   
+   // integrity check 
+   if (localStorage.getItem("Group7IntegrityCheck") == null)
+        localStorage.clear();
+}
+
 function initCatalogData() {
 	console.log('initCatalogData()');
 
@@ -51,6 +59,7 @@ function initCatalogData() {
 
 $(document).ready(function(){
 	console.log('document.ready()');
+    initPlaylistData();
 	initCatalogData();
 	
 	// hide the filename columns
@@ -89,6 +98,15 @@ $(document).ready(function(){
 	
     // on load update to fit into screen appropriately
     $('#media-video').height(window.innerHeight -5);
+
+    $("#fullscreen-music-table-button").on("click", function(){
+        $("td.player-section").toggle("slow");
+        $("#video-playlist-section").toggle("slow");
+        
+        // set to new width
+        $("#music-playlist-table").width("100%")
+        $("div.main-container").toggleClass("table-fullscreen");_
+    })
 });
 
 $(window).resize(function(){

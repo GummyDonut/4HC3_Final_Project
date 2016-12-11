@@ -72,8 +72,13 @@ table.table.playlist td {
     border-top:none;
     color:black;
 }
+table.table.playlist td:first-child {
+    border-left:none;
+}
 table.table.playlist thead td {
     border-bottom: 1px solid black;
 }
-
+.table-fullscreen {
+    padding-left:2%;
+}
 
