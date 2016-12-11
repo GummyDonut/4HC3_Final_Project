@@ -62,6 +62,9 @@ $(document).ready(function(){
     initPlaylistData();
 	initCatalogData();
 	
+    // get initial table width to save
+    var tableWidth = $("#video-playlist-table").width();
+
 	// hide the filename columns
 	var column = videoTable.column(2);
     column.visible( false );
@@ -99,14 +102,36 @@ $(document).ready(function(){
     // on load update to fit into screen appropriately
     $('#media-video').height(window.innerHeight -5);
 
+    // fullscreen table button
     $("#fullscreen-music-table-button").on("click", function(){
         $("td.player-section").toggle("slow");
         $("#video-playlist-section").toggle("slow");
         
         // set to new width
-        $("#music-playlist-table").width("100%")
-        $("div.main-container").toggleClass("table-fullscreen");_
-    })
+        $("div.main-container").toggleClass("table-fullscreen");
+       
+        // fullscreen table
+        if ($("div.main-container").hasClass("table-fullscreen")) {
+            $("#music-playlist-table").width(window.innerWidth-5)
+        } else {
+            $("#music-playlist-table").width(tableWidth);
+        }
+    });
+    $("#fullscreen-video-table-button").on("click", function(){
+        $("td.player-section").toggle("slow");
+        $("#music-playlist-section").toggle("slow");
+        
+        // set to new width
+        $("div.main-container").toggleClass("table-fullscreen");
+
+        // fullscreen table
+        if ($("div.main-container").hasClass("table-fullscreen")) {
+            $("#video-playlist-table").width(window.innerWidth-5)
+        } else {
+            $("#video-playlist-table").width(tableWidth);
+        }
+
+    });
 });
 
 $(window).resize(function(){
