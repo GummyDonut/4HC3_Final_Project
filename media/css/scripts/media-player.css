@@ -6,7 +6,9 @@ body {
 }
 
 .media-waveform {
-	margin-left: 250px;
+	postion:absolute; 
+	top: 0px;
+	width:960px;
 	height: 76px;
 }
 .reverse {
@@ -26,7 +28,7 @@ border: none;
 .media-replay {
  position:absolute;
  top: 10px;
- left: 1200px;
+ left: 890px;
  background-color: #606060;
 border: none;
 }
@@ -57,7 +59,7 @@ border: none;
 .media-reverse {
  position:absolute;
  top: 10px;
- left: 530px;
+ left: 410px;
  background-color: #606060;
 border: none;
 }
@@ -65,7 +67,7 @@ border: none;
 .media-play {
  position:absolute;
  top: 10px;
- left: 600px;
+ left: 480px;
  background-color: #606060;
 border: none;
 }
@@ -73,13 +75,33 @@ border: none;
 .media-fastforward {
  position:absolute;
  top: 10px;
- left: 670px;
+ left: 550px;
  background-color: #606060;
 border: none;
 }
 
+.media-player{
+	position:absolute; 
+	top:0px;
+	width:960px;
+	height:600px;
+}
+
+div.player-progress{
+	position:absolute; 
+	top:590px;
+	
+}
 
 
+.media-video{
+	position: absolute;
+	top:-150px;
+	width:960px;
+	height:600px;
+	border: 0px solid #ff0000;
+	
+}
 
 div.media-controls {
 	border: none;
@@ -87,14 +109,19 @@ div.media-controls {
 	padding: 1px;
 	color: gray;
 	background-color: #606060;
-	padding: 35px;
-	position: relative;
+	padding: 0px;
+	position: absolute;
+	top:620px;
 	margin: 0;
 }
 
 .player-container {
-	border: solid 1px #1e1e1e;
-	display: float;
+	border: solid 0px #606060;
+	display: fixed;
+	width:960px;
+	height:700px;
+	position:relative;
+	background-color: #606060;
 }
 .media-title {
 	position: relative;
@@ -111,12 +138,10 @@ div.media-controls {
 }
 
 progress {
-	font-size:12px;
-	width:1024px;
-	height:10px;
-	border: 1px solid #000000;
-	margin-right:105px;
-	margin-left:105px;
+ font-size:12px;
+ width:960px;
+ height:30px;
+ border: 1px solid #000000;
 
 }
 progress::-moz-progress-bar { background:#ffffff; }

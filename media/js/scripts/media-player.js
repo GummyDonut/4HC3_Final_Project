@@ -14,6 +14,7 @@ var startSystemTime;
 var startVideoTime;
 var rewindSpd;
 var mediaExt = 'mp4';
+var rewinding = false;
 
 function initMediaPlayer() {
 	console.log('initMediaPlayer()');
@@ -38,7 +39,7 @@ function initMediaPlayer() {
 		console.log(mevent.button+' '+mevent.clientX+' '+mevent.clientY+' '+mevent.screenX+' '+mevent.screenY+' '+mevent.offsetX+' '+mevent.offsetY);
 
 		var duration = mediaPlayer.duration;
-		var currentTime = (duration * mevent.offsetX ) / 1024;
+		var currentTime = (duration * mevent.offsetX ) / 960;
 		mediaPlayer.currentTime = currentTime;
 
 	});
@@ -91,12 +92,18 @@ function togglePlayPause() {
 	}
 	// Otherwise it must currently be playing
 	else {
-		// Change the button to be a play button
-		changeButtonType(playPauseBtn, 'play');
-		// Pause the media
-		mediaPlayer.pause();
-		if (mediaExt == 'mp3') {
-			removeMediaPlaying();
+		if (rewinding) {
+				clearTimeout(intervalRewind);
+				stopPlayer();
+				
+		} else {
+			// Change the button to be a play button
+			changeButtonType(playPauseBtn, 'play');
+			// Pause the media
+			mediaPlayer.pause();
+			if (mediaExt == 'mp3') {
+				removeMediaPlaying();
+			}
 		}
 	}
 	mediaPlayer.playbackRate = 1;
@@ -190,8 +197,8 @@ function addMediaPlaying() {
 	if (mediaPlaying == null) {
 		mediaPlaying = document.createElement("img");
 		mediaPlaying.setAttribute("src", "media/images/bar.gif");
-		mediaPlaying.setAttribute("height", "75");
-		mediaPlaying.setAttribute("width", "192");
+		mediaPlaying.setAttribute("height", "600");
+		mediaPlaying.setAttribute("width", "960");
 		jpgCtrl.appendChild(mediaPlaying);
 	}
 	mediaPlayer.play();
@@ -252,6 +259,7 @@ function resetPlayer() {
 }
 
 function rewindplay() {
+	
 	mediaPlayer.playbackRate = 1.0;
 	var elapsed = new Date().getTime()-startSystemTime;
 	mediaPlayer.currentTime = Math.max(startVideoTime - elapsed*rewindSpd/1000.0, 0);
@@ -259,6 +267,7 @@ function rewindplay() {
 		intervalRewind = setTimeout(rewindplay, 30);
 	} else {
 		mediaPlayer.pause();
+		rewinding = false;
 	}
 	
 }
@@ -269,6 +278,7 @@ function rewind(rewindSpeed) {
 	startVideoTime = mediaPlayer.currentTime;
 	rewindSpd = rewindSpeed;
 	intervalRewind = setTimeout(rewindplay, 30);
+	rewinding = true;
 }
 
 function fullScreen() {
