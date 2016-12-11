@@ -1,0 +1,97 @@
+.textheader{
+    font-size:45px;
+}
+
+.smtextheader{
+    font-size:25px;
+}
+
+/*Modal popup */
+.modalDialog { 
+    position:fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+/*Change the dialog to absolute*/
+@media handheld, screen and (max-width: 480px) {
+    .modalDialog { 
+        position:absolute;
+        font-family: Arial, Helvetica, sans-serif;
+        top: -7%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 99999;
+        opacity:0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+    }
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 40%;
+    position: relative;
+    margin: 10% auto;
+    padding: 0px 0px 13px 0px;
+    background: #606060;
+}
+.modalDialog div.modal-title {
+    width: 100%;
+    height:25px;
+    position: relative;
+    background: rgb(233,233,233);
+}
+.modalDialog div.modal-div {
+    margin-top:1em;
+}
+.modalDialog p {
+    color: white;
+}
+.modalDialog div.modal-btm-button {
+    margin-top:1em;
+    padding-right:5px;
+}
+.modalDialog div.modal-btm-button button {
+    background-color:#aba6a6;
+    color:white;
+    margin-right:0.5em;
+}
+.close {
+    background: rgba(173, 173, 173, 0.62);;
+    color: #606061;
+    line-height: 24px;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    opacity:1;
+    top: 0px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+    background: red; 
+}

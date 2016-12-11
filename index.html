@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="media/css/scripts/template.css">
 <link rel="stylesheet" type="text/css" href="media/css/scripts/media-player.css">
 <link rel="stylesheet" type="text/css" href="media/css/scripts/playlist.css">
+<link rel="stylesheet" type="text/css" href="media/css/scripts/modal.css">
 <script src="media/js/scripts/playlist.js"></script>
 <script src="media/js/scripts/media-player.js"></script>
 </head>
@@ -22,7 +23,9 @@
                     <div class="title-bar">
                     <h3 class="playlist-title">Custom title</h3> 
                     <span class='button-group'>
-                        <img class="enlarge-button" id="add-music-playlist-button" src="media/images/Add_playlist.png"></img>
+                        <a href="#modal-add-music-playlist">
+                            <img class="enlarge-button" id="add-music-playlist-button" src="media/images/Add_playlist.png"></img>
+                        </a>
                         <span id="add-music-button" class="enlarge-button glyphicon glyphicon-plus"></span>
                         <img class="enlarge-button" id="fullscreen-music-table-button" src="media/images/fullscreen.png"></img>
                     </span>
@@ -87,6 +90,25 @@
                 </td>
             </tr>
         </table>
+    </div>
+
+    <!-- modals -->
+    <div id="modal-add-music-playlist" class="modalDialog">
+        <div>
+            <div class="modal-title">
+                <a href="#close" title="Close" class="close">X</a>
+            </div>
+            <div class="modal-div text-center">
+                <p>
+                   Please name the playlist you wanna add 
+                </p>
+                <input style="width:50%;" maxlength="15" id="input-music-playlist"></input>
+            </div>
+            <div class="modal-btm-button text-right">
+                <button id="save-music-playlist">Save</button>
+                <a style="color:white;" href="#close"> <button >Cancel</button> </a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
