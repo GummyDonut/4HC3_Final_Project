@@ -1,4 +1,5 @@
-musicData = [
+/*
+var musicData = [
     {
         "Track" : 'tuesday-song',
         "Album" : 'Weekdays-album',
@@ -11,12 +12,24 @@ var videoData = [
         "Duration" : "20mins",
     }
 ]
-for (var i=0; i < 10; i++) {
-    musicData.push(musicData[0]);
-    videoData.push(videoData[0]);
-}
+*/
+var musicData = [];
+var videoData = [];
+var musieTable;
+var videoTable;
+function initCatalogData() {
+	console.log('initCatalogData()');
 
-var dataTable =  $("table.table.music-playlist").DataTable({
+	musicData.push({"Track":'Lose yourself', "Album":'8 Miles', "Duration":'5:31',"Filename":'Eminem - Lose Yourself.mp3'});
+	musicData.push({"Track":'Imagine', "Album":'John Lennon', "Duration":'3:03',"Filename":'John Lennon - Imagine.mp3'});
+	musicData.push({"Track":'Lies', "Album":'Billy Talent', "Duration":'2:59',"Filename":'billy talent - Lies.mp3'});
+
+
+	videoData.push({"Name":'Bunny with Butterfly', "Duration":'0:10', "Filename":'mov_bbb.mp4'});
+	videoData.push({"Name":'Big Buck Bunny', "Duration":'1:00', "Filename":'big_buck_bunny.mp4'});
+	videoData.push({"Name":'Pokemon Gotta Catch them All', "Duration":'2:50', "Filename":'Catchatronic -- Pokemon Gotta Catch them All Mix.mp4'});
+	
+	musicTable =  $("table.table.music-playlist").DataTable({
         "searching" : false,
         "lengthChange" : false,
         "pageLength" : 4,
@@ -25,10 +38,18 @@ var dataTable =  $("table.table.music-playlist").DataTable({
         {"data": "Track"},
         {"data": "Album"},
         {"data": "Duration"},
+		{"data": "Filename"},
         ],
         "data" : musicData
-        });
-var dataTable =  $("table.table.video-playlist").DataTable({
+	});
+		
+	videoTable =  $("table.table.video-playlist").DataTable({
+        "columnDefs": [
+            {
+                "targets": [ 2 ],
+                "visible": true
+            }
+        ],
         "searching" : false,
         "lengthChange" : false,
         "pageLength" : 4,
@@ -36,26 +57,51 @@ var dataTable =  $("table.table.video-playlist").DataTable({
         "columns" : [
         {"data": "Name"},
         {"data": "Duration"},
+		{"data": "Filename"},
         ],
         "data" : videoData
+	});
+}
+
+
+$(document).ready(function(){
+	console.log('document.ready()');
+	initCatalogData();
+	
+	// hide the filename columns
+	var column = videoTable.column(2);
+    column.visible( false );
+	column = musicTable.column(3);
+	column.visible( false );
+	
+	videoTable.$(':eq(3)').addClass('selected');
+	$('#video-playlist-table tbody').on( 'click', 'tr', function () {
+
+//		$(this).toggleClass('selected');
+//		console.log(this.cells[0].innerText);
+        videoTable.$('tr.selected').removeClass('selected');
+		musicTable.$('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
+		var data = videoTable.row(this).data();
+		console.log(data.Name + ' ' + data.Filename);
+		loadVideo(data.Name, 'media/video/'+data.Filename);
+ 	
+	} );
+
+	$('#music-playlist-table tbody').on( 'click', 'tr', function () {
+		console.log('music list selected');
+
+//		$(this).toggleClass('selected');
+//		console.log(this.cells[0].innerText);
+		
+        videoTable.$('tr.selected').removeClass('selected');
+        musicTable.$('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
+		var data = musicTable.row(this).data();
+		console.log(data.Track + ' ' + data.Filename);
+		loadVideo(data.Track, 'media/music/'+data.Filename);
+ 	} );
+	
 });
-
-// event-listener for tables - highlight on click
-$('table.table.music-playlist').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        } else {
-            $('table.table.music-playlist tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-} );
-
-$('table.table.video-playlist').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        } else {
-            $('table.table.video-playlist tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-} );
+ 
 

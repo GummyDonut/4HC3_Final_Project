@@ -9,6 +9,9 @@
 <link rel="stylesheet" type="text/css" href="media/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="media/css/scripts/template.css">
 <link rel="stylesheet" type="text/css" href="media/css/scripts/media-player.css">
+<link rel="stylesheet" type="text/css" href="media/css/scripts/playlist.css">
+<script src="media/js/scripts/playlist.js"></script>
+<script src="media/js/scripts/media-player.js"></script>
 </head>
 
 <body>
@@ -24,12 +27,13 @@
                         <img class="enlarge-button" id="fullscreen-music-table-button" src="media/images/fullscreen.png"></img>
                     </span>
                     </div>
-                    <table class="table playlist music-playlist">
+                    <table id="music-playlist-table" class="table music-playlist">
                         <thead>
                         <tr>
                         <td>Track</td>
                         <td>Album</td>
                         <td>Duration</td>
+						<td>Filename</td>
                         </tr>
                         </thead>
                     </table>
@@ -72,11 +76,12 @@
                         <img class="enlarge-button" id="fullscreen-video-table-button" src="media/images/fullscreen.png"></img>
                     </span>
                     </div>
-                    <table class="table playlist video-playlist">
+                    <table id="video-playlist-table" class="table video-playlist">
                         <thead>
                         <tr>
                         <td>Name</td>
                         <td>Duration</td>
+						<td>Filename</td>
                         </tr>
                         </thead>
                     </table>
@@ -85,8 +90,5 @@
         </table>
     </div>
 </body>
-<script src="media/js/scripts/main.js"></script>
-<script src="media/js/scripts/playlist.js"></script>
-<script src="media/js/scripts/media-player.js"></script>
 </html>
 
