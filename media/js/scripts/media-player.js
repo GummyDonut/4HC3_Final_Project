@@ -1,6 +1,5 @@
 // Code for just the media player here
 document.addEventListener("DOMContentLoaded", function() { initMediaPlayer(); }, false);
-var mediaTitle; 
 
 // Variables to store handles to various required elements
 var mediaPlayer;
@@ -18,7 +17,6 @@ var mediaExt = 'mp4';
 
 function initMediaPlayer() {
 	console.log('initMediaPlayer()');
-	mediaTitle = document.getElementById('media-title');
 	// Get a handle to the player
 	mediaPlayer = document.getElementById('media-video');
 	
@@ -184,7 +182,6 @@ function changeButtonType(btn, value) {
 		return;
 		
 	}
-	btn.title = value;
 	btn.innerHTML = value;
 	btn.className = value;
 }
@@ -208,7 +205,6 @@ function removeMediaPlaying() {
 
 // Loads a video item into the media player
 function loadVideo() {
-	var title = arguments[0];
 	for (var i = 1; i < arguments.length; i++) {
 		var file = arguments[i].split('.');
 		var ext = file[file.length - 1];
@@ -218,7 +214,6 @@ function loadVideo() {
 			resetPlayer();
 			mediaPlayer.src = arguments[i];
 			mediaPlayer.load();
-			mediaTitle.innerHTML = '*** '+title+' ***';
 			mediaExt = ext;
 			if (ext == 'mp3') {
 				addMediaPlaying();
