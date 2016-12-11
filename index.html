@@ -61,7 +61,8 @@
 							<button id="cue-button" class="media-fastforward" title="cue" value="FF" onclick='slowmotion(0.2)'><img src='media/images/ff24.png'></button>
 							<button id="volume-inc-button" class="media-inc-volume" title="increase volume" onclick='changeVolume("+");'><img src='media/images/plus24.png'></button>
 							<button id="volume-dec-button" class="media-dec-volume" title="decrease volume" onclick='changeVolume("-");'><img src='media/images/minus24.png'></button>
-							<button id="replay-button" class="media-replay" title="replay" onclick="replayMedia();"><img src='media/images/replay24.png'></button>	
+                            <!--<input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>-->					
+                            <button id="replay-button" class="media-replay" title="replay" onclick="replayMedia();"><img src='media/images/replay24.png'></button>	
 							<button id="mute-button" class="media-mute" title="mute" onclick='toggleMute("true");'><img id="muteunmute" src='media/images/mute24.png'></button>
 							<button class="media-fullscreen"  title="full" onclick='fullScreen();'><img src='media/images/full.png'></button>
 						</div>

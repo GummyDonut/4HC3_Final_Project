@@ -126,6 +126,16 @@ function changeVolume(direction) {
 	mediaPlayer.volume = parseFloat(mediaPlayer.volume).toFixed(1);
 }
 
+/*
+window.SetVolume = function(val)
+{
+    var player = document.getElementById('video');
+    console.log('Before: ' + player.volume);
+    player.volume = val / 100;
+    console.log('After: ' + player.volume);
+}
+*/
+
 // Toggles the media player's mute and unmute status
 function toggleMute() {
 	if (mediaPlayer.muted) {
