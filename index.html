@@ -79,8 +79,10 @@
                         <a href="#modal-add-video-playlist">
                             <img class="enlarge-button" id="add-video-playlist-button" src="media/images/Add_playlist.png"></img>
                         </a>
-                        <span id="add-video-button" class="enlarge-button glyphicon glyphicon-plus"></span>
+                         <a href="#modal-add-video">
+                        <span id="add-video-button" style="color:white" class="enlarge-button glyphicon glyphicon-plus"></span>
                         <img class="enlarge-button" id="fullscreen-video-table-button" src="media/images/fullscreen.png"></img>
+                        </a>
                     </span>
                     </div>
                     <table id="video-playlist-table" class="table playlist video-playlist">
@@ -139,6 +141,33 @@
             </div>
         </div>
     </div>
+
+<div id="modal-add-video" class="modalDialog">
+        <div>
+            <div class="modal-title">
+                <a href="#close" title="Close" class="close">X</a>
+            </div>
+            <div class="modal-div text-center">
+                <p>
+                   Please choose a video to add.  
+                </p>
+
+
+                <select style="width:50%;" maxlength="15" id="input-music">
+                  <option value=""></option>
+                  <option value="Lose yourself">Lose Yourself</option>
+                  <option value="Lies">Lies</option>
+                  <option value="Imagine">Imagine</option>
+                </select>
+            </div>
+            <div class="modal-btm-button text-right">
+                <button id="add-music-playslit">Add</button>
+                <a style="color:white;" href="#close"> <button >Cancel</button> </a>
+            </div>
+        </div>
+    </div>
+
+
 
 
 
