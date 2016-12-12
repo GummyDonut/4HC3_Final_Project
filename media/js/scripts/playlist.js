@@ -4,14 +4,14 @@ var musieTable;
 var videoTable;
 
 function initPlaylistData() {
-   
-   // integrity check 
+
+   // integrity check
    if (localStorage.getItem("Group7IntegrityCheck") == null) {
         localStorage.clear();
         localStorage.setItem("Playlist", '{"music":[], "video":[]}');
         localStorage.setItem("Group7IntegrityCheck", "true");
    }
-   
+
 }
 
 function initCatalogData() {
@@ -25,7 +25,7 @@ function initCatalogData() {
 	videoData.push({"Name":'Bunny with Butterfly', "Duration":'0:10', "Filename":'mov_bbb.mp4'});
 	videoData.push({"Name":'Big Buck Bunny', "Duration":'1:00', "Filename":'big_buck_bunny.mp4'});
 	videoData.push({"Name":'Pokemon Gotta Catch them All', "Duration":'2:50', "Filename":'Catchatronic -- Pokemon Gotta Catch them All Mix.mp4'});
-	
+
 	musicTable =  $("table.table.music-playlist").DataTable({
         "searching" : false,
         "lengthChange" : false,
@@ -39,7 +39,7 @@ function initCatalogData() {
         ],
         "data" : musicData
 	});
-		
+
 	videoTable =  $("table.table.video-playlist").DataTable({
         "columnDefs": [
             {
@@ -65,7 +65,7 @@ $(document).ready(function(){
 	console.log('document.ready()');
     initPlaylistData();
 	initCatalogData();
-	
+
     // get initial table width to save
     var tableWidth = $("#video-playlist-table").width();
 
@@ -74,7 +74,7 @@ $(document).ready(function(){
     column.visible( false );
 	column = musicTable.column(3);
 	column.visible( false );
-	
+
 	videoTable.$(':eq(3)').addClass('selected');
 	$('#video-playlist-table tbody').on( 'click', 'tr', function () {
 
@@ -86,7 +86,7 @@ $(document).ready(function(){
 		var data = videoTable.row(this).data();
 		console.log(data.Name + ' ' + data.Filename);
 		loadVideo(data.Name, 'media/video/'+data.Filename);
- 	
+
 	} );
 
 	$('#music-playlist-table tbody').on( 'click', 'tr', function () {
@@ -94,7 +94,7 @@ $(document).ready(function(){
 
 //		$(this).toggleClass('selected');
 //		console.log(this.cells[0].innerText);
-		
+
         videoTable.$('tr.selected').removeClass('selected');
         musicTable.$('tr.selected').removeClass('selected');
         $(this).addClass('selected');
@@ -102,7 +102,7 @@ $(document).ready(function(){
 		console.log(data.Track + ' ' + data.Filename);
 		loadVideo(data.Track, 'media/music/'+data.Filename);
  	} );
-	
+
     // on load update to fit into screen appropriately
     $('#media-video').height(window.innerHeight -5);
 
@@ -110,10 +110,10 @@ $(document).ready(function(){
     $("#fullscreen-music-table-button").on("click", function(){
         $("td.player-section").toggle("slow");
         $("#video-playlist-section").toggle("slow");
-        
+
         // set to new width
         $("div.main-container").toggleClass("table-fullscreen");
-       
+
         // fullscreen table
         if ($("div.main-container").hasClass("table-fullscreen")) {
             $("#music-playlist-table").width(window.innerWidth-5)
@@ -127,7 +127,7 @@ $(document).ready(function(){
     $("#fullscreen-video-table-button").on("click", function(){
         $("td.player-section").toggle("slow");
         $("#music-playlist-section").toggle("slow");
-        
+
         // set to new width
         $("div.main-container").toggleClass("table-fullscreen");
 
@@ -140,8 +140,8 @@ $(document).ready(function(){
             $("#fullscreen-video-table-button").attr("src", "media/images/fullscreen.png")
         }
     });
-    
-    // add playlist event-listener 
+
+    // add playlist event-listener
     $("#save-music-playlist").on("click", function(){
         var playlist = JSON.parse(localStorage.getItem("Playlist"));
         var input = $("#input-music-playlist").val();
@@ -165,7 +165,7 @@ $(document).ready(function(){
         }
         playlist = JSON.stringify(playlist);
         localStorage.setItem("Playlist", playlist);
-        
+
     })
 });
 
@@ -173,5 +173,5 @@ $(window).resize(function(){
     $("video.media-player").height(window.innerHeight - 5);
 });
 
- 
+
 

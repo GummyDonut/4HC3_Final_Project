@@ -26,8 +26,10 @@
                         <a href="#modal-add-music-playlist">
                             <img class="enlarge-button" id="add-music-playlist-button" src="media/images/Add_playlist.png"></img>
                         </a>
-                        <span id="add-music-button" class="enlarge-button glyphicon glyphicon-plus"></span>
+                         <a href="#modal-add-music">
+                        <span id="add-music-button" style= "color:white"class="enlarge-button glyphicon glyphicon-plus"></span>
                         <img class="enlarge-button" id="fullscreen-music-table-button" src="media/images/fullscreen.png"></img>
+                        </a>
                     </span>
                     </div>
                     <table id="music-playlist-table" class="table playlist music-playlist">
@@ -113,6 +115,35 @@
             </div>
         </div>
     </div>
+<div id="modal-add-music" class="modalDialog">
+        <div>
+            <div class="modal-title">
+                <a href="#close" title="Close" class="close">X</a>
+            </div>
+            <div class="modal-div text-center">
+                <p>
+                   Please choose a track to add.  
+                </p>
+
+
+                <select style="width:50%;" maxlength="15" id="input-music">
+                  <option value=""></option>
+                  <option value="Lose yourself">Lose Yourself</option>
+                  <option value="Lies">Lies</option>
+                  <option value="Imagine">Imagine</option>
+                </select>
+            </div>
+            <div class="modal-btm-button text-right">
+                <button id="add-music-playslit">Add</button>
+                <a style="color:white;" href="#close"> <button >Cancel</button> </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <div id="modal-add-video-playlist" class="modalDialog">
         <div>
             <div class="modal-title">
