@@ -5,6 +5,12 @@ select.playlist-title {
     font-size:25px;
     cursor:pointer;
 }
+span.delete-file-button {
+    font-size:1.75em;
+    margin-right:0.25em;
+    margin-left:0.25em;
+    color: red;
+}
 span.delete-playlist-button {
     font-size:1.75em;
     margin-right:0.25em;

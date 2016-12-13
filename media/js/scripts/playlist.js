@@ -32,17 +32,28 @@ function initCatalogData() {
 	videoData.push({"Name":'Big Buck Bunny', "Duration":'1:00', "Filename":'big_buck_bunny.mp4'});
 	videoData.push({"Name":'Pokemon Gotta Catch them All', "Duration":'2:50', "Filename":'Catchatronic -- Pokemon Gotta Catch them All Mix.mp4'});
 
-	musicTable =  $("table.table.music-playlist").DataTable({
+        musicTable =  $("table.table.music-playlist").DataTable({
         "searching" : false,
         "lengthChange" : false,
         "pageLength" : 4,
         "order": [[ 0, "desc" ]],
+        "columnDefs": [
+            {
+                "targets": [ 2 ],
+                "render": function ( data, type, row ) {
+                    return  data + '<span mediaType="music" style="float:right;" class=" delete-file-button glyphicon glyphicon-minus"></span>';
+                },
+            }
+        ],
         "columns" : [
         {"data": "Track"},
         {"data": "Album"},
         {"data": "Duration"},
 		{"data": "Filename"},
         ],
+        "drawCallback" : function(){
+            deleteMusicHandler();
+        }
         //"data" : musicData
 	});
 
@@ -51,6 +62,12 @@ function initCatalogData() {
             {
                 "targets": [ 2 ],
                 "visible": true
+            },
+            {
+                "targets": [ 1 ],
+                "render": function ( data, type, row ) {
+                    return  data + '<span mediaType="video" style="float:right;" class=" delete-file-button glyphicon glyphicon-minus"></span>';
+                },
             }
         ],
         "searching" : false,
@@ -62,11 +79,43 @@ function initCatalogData() {
         {"data": "Duration"},
 		{"data": "Filename"},
         ],
+        "drawCallback" : function(){
+            deleteMusicHandler();
+        },
 //        "data" : videoData
 	});
 
     updatePlaylist("music", "update");
     updatePlaylist("video", "update");
+}
+
+// add event listener for deleting individual file in table
+// we need to do this because of redraw
+function deleteMusicHandler() {
+   $("span.delete-file-button").on("click", function(){
+       var type = $(this).attr("mediaType"); 
+       var pl = playlist[type];
+       var plTitle = $("#" + type + "-playlist-title").val();
+       var name = $($(this).parent().parent().children()[0]).html();
+
+       // find the playlist
+       for (var i = 0; i < pl.length; i++) {
+            if (plTitle == pl[i].title) {
+                var files = pl[i].files
+                for ( var j = 0; j < files.length; j++) {
+                    if(type == "music"){
+                        if(name == files[j].Track)
+                            files.splice(j,1);
+                    }
+                    else if(type == "video"){
+                        if(name == files[j].Name)
+                            files.splice(j,1);
+                    }
+                }
+            }
+       }
+       redrawTable(type, plTitle);
+   });
 }
 
 // update the playlist table
