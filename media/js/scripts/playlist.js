@@ -1,7 +1,10 @@
+// global vars
+var playlist;
 var musicData = [];
 var videoData = [];
 var musieTable;
 var videoTable;
+
 
 function initPlaylistData() {
 
@@ -11,13 +14,15 @@ function initPlaylistData() {
         localStorage.setItem("Playlist", '{"music":[], "video":[]}');
         localStorage.setItem("Group7IntegrityCheck", "true");
    }
+   playlist = JSON.parse(localStorage.getItem("Playlist"));
 
 }
+initPlaylistData();
 
 function initCatalogData() {
 	console.log('initCatalogData()');
-
-	musicData.push({"Track":'Lose yourself', "Album":'8 Miles', "Duration":'5:31',"Filename":'Eminem - Lose Yourself.mp3'});
+    
+    musicData.push({"Track":'Lose yourself', "Album":'8 Miles', "Duration":'5:31',"Filename":'Eminem - Lose Yourself.mp3'});
 	musicData.push({"Track":'Imagine', "Album":'John Lennon', "Duration":'3:03',"Filename":'John Lennon - Imagine.mp3'});
 	musicData.push({"Track":'Lies', "Album":'Billy Talent', "Duration":'2:59',"Filename":'billy talent - Lies.mp3'});
 
@@ -63,7 +68,6 @@ function initCatalogData() {
 
 $(document).ready(function(){
 	console.log('document.ready()');
-    initPlaylistData();
 	initCatalogData();
 
     // get initial table width to save
@@ -143,7 +147,6 @@ $(document).ready(function(){
 
     // add playlist event-listener
     $("#save-music-playlist").on("click", function(){
-        var playlist = JSON.parse(localStorage.getItem("Playlist"));
         var input = $("#input-music-playlist").val();
         var musicArray = [];
         for (var i = 0; i < playlist.music.length; i++) {
@@ -163,8 +166,9 @@ $(document).ready(function(){
             // trigger close
             window.location.hash = "#close";
         }
-        playlist = JSON.stringify(playlist);
-        localStorage.setItem("Playlist", playlist);
+    })
+
+    $("#add-music-button").on("click", function(){
 
     })
 });
@@ -173,5 +177,10 @@ $(window).resize(function(){
     $("video.media-player").height(window.innerHeight - 5);
 });
 
+// when user leaves save data
+window.onbeforeunload = function(){
+        playlist = JSON.stringify(playlist);
+        localStorage.setItem("Playlist", playlist);
+}
 
 

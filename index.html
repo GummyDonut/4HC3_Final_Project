@@ -30,10 +30,6 @@
                         <span id="add-music-button" style= "color:white"class="enlarge-button glyphicon glyphicon-plus"></span>
                         </a>
                         <img class="enlarge-button" id="fullscreen-music-table-button" src="media/images/fullscreen.png"></img>
-                          <a href="#modal-error-music">
-                        <span id="add-video-button" style="color:red" class="enlarge-button glyphicon glyphicon-plus"></span>
-                        </a>
-
                     </span>
                     </div>
                     <table id="music-playlist-table" class="table playlist music-playlist">
@@ -87,11 +83,7 @@
                         <span id="add-video-button" style="color:white" class="enlarge-button glyphicon glyphicon-plus"></span>
                         </a>
                         <img class="enlarge-button" id="fullscreen-video-table-button" src="media/images/fullscreen.png"></img>
-                                                <a href="#modal-error-video">
-                        <span id="add-video-button" style="color:red" class="enlarge-button glyphicon glyphicon-plus"></span>
-                        </a>
-
-                    </span>
+                         </span>
                     </div>
                     <table id="video-playlist-table" class="table playlist video-playlist">
                         <thead>
@@ -134,17 +126,16 @@
                 <p>
                    Please choose a track to add.  
                 </p>
-
-
                 <select style="width:50%;" maxlength="15" id="input-music">
                   <option value=""></option>
-                  <option value="Lose yourself">Lose Yourself</option>
-                  <option value="Lies">Lies</option>
-                  <option value="Imagine">Imagine</option>
+                  <option value="Lose yourself">Lose Yourself.mp3</option>
+                  <option value="Lies">Lies.mp3</option>
+                  <option value="Imagine">Imagine.mp3</option>
+                  <option value="Imagine">bob.txt</option>
                 </select>
             </div>
             <div class="modal-btm-button text-right">
-                <button id="add-music-playslit">Add</button>
+                <button id="add-music-button">Add</button>
                 <a style="color:white;" href="#close"> <button >Cancel</button> </a>
             </div>
         </div>
@@ -159,17 +150,16 @@
                 <p>
                    Please choose a video to add.  
                 </p>
-
-
                 <select style="width:50%;" maxlength="15" id="input-music">
                   <option value=""></option>
-                  <option value="Lose yourself">Lose Yourself</option>
-                  <option value="Lies">Lies</option>
-                  <option value="Imagine">Imagine</option>
+                  <option value="Lose yourself">Big Buck Bunny.mp4</option>
+                  <option value="Lies">Pokemon Gotta Catch them All.mp4</option>
+                  <option value="Imagine">Bunny with Butterfly.mp4</option>
+                  <option value="Imagine">midtermReview.txt</option>
                 </select>
             </div>
             <div class="modal-btm-button text-right">
-                <button id="add-music-playslit">Add</button>
+                <button id="add-music-playslist">Add</button>
                 <a style="color:white;" href="#close"> <button >Cancel</button> </a>
             </div>
         </div>
@@ -184,18 +174,14 @@
                 <p>
                 <img src="media/images/error.png"style="width:50px;height:50px;">
                 <font size="4">Please add a valid mp3 file!</font>
-                    
                 </p>
-
-
             </div>
             <div class="modal-btm-button text-right">
                 <a style="color:white;" href="#close"> <button >Okay</button> </a>
             </div>
         </div>
     </div>
-
-<div id="modal-error-video" class="modalDialog">
+    <div id="modal-error-video" class="modalDialog">
         <div>
             <div class="modal-title">
                 <a href="#close" title="Close" class="close">X</a>
@@ -204,22 +190,13 @@
                 <p>
                 <img src="media/images/error.png"style="width:50px;height:50px;">
                 <font size="4">Please add a valid mp4/mov file!</font>
-                    
                 </p>
-
-
             </div>
             <div class="modal-btm-button text-right">
                 <a style="color:white;" href="#close"> <button >Okay</button> </a>
             </div>
         </div>
     </div>
-
-
-
-
-
-
     <div id="modal-add-video-playlist" class="modalDialog">
         <div>
             <div class="modal-title">
