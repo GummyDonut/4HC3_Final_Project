@@ -21,7 +21,9 @@
             <tr>
                 <td id="music-playlist-section" valign="top" width="25%" class="playlist-table">
                     <div class="title-bar">
-                    <span id="delete-music-playlist" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
+                    <a href="#modal-confirm-delete">
+                    <span id="" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
+                    </a>
                     <select class="playlist-title" id="music-playlist-title">
                         <option>No playlist</option>
                     </select> 
@@ -220,6 +222,26 @@
             </div>
         </div>
     </div>
+
+
+    <!-- confirmation message for deleting a playlist -->
+ <div id="modal-confirm-delete" class="modalDialog">
+        <div>
+            <div class="modal-title">
+                <a href="#close" title="Close" class="close">X</a>
+            </div>
+            <div class="modal-div text-center">
+                <p>
+                   Are you sure you want to delete the playlist? 
+                </p>
+            </div>
+            <div class="modal-btm-button text-right">
+                <a style="color:white;" href="#close"> <button id="delete-music-playlist" >Yes</button> </a>
+                <a style="color:white;" href="#close"> <button >No</button> </a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 
