@@ -4,6 +4,7 @@ var musicData = [];
 var videoData = [];
 var musicTable;
 var videoTable;
+var confirmMessage = true;
 
 
 function initPlaylistData() {
@@ -22,7 +23,7 @@ initPlaylistData();
 function initCatalogData() {
 	console.log('initCatalogData()');
     updatePlaylist("music", "update");
-    
+
     musicData.push({"Track":'Lose yourself', "Album":'8 Miles', "Duration":'5:31',"Filename":'Eminem - Lose Yourself.mp3'});
 	musicData.push({"Track":'Imagine', "Album":'John Lennon', "Duration":'3:03',"Filename":'John Lennon - Imagine.mp3'});
 	musicData.push({"Track":'Lies', "Album":'Billy Talent', "Duration":'2:59',"Filename":'billy talent - Lies.mp3'});
@@ -73,7 +74,7 @@ function updatePlaylist(type, action, title) {
     var files = playlist[type];
 
     if (action == "update") {
-        
+
         // remove all options
         playlistTitle.empty();
 
@@ -225,19 +226,32 @@ $(document).ready(function(){
             window.location.hash = "#close";
         }
     });
+$("#delete-without-confirm").on("click", function(){
+    if ($('#confirmbox').is(":checked"))
+        {updatePlaylist("music", "delete", $("#music-playlist-title").val());}
+    });
 
+
+    $("#delete-music-playlist-yes").on("click", function(){
+        updatePlaylist("music", "delete", $("#music-playlist-title").val());
+        document.getElementById("modal-confirm-delete").style.visibility="hidden";
+    });
+
+    $("#delete-music-playlist-no").on("click", function(){
+        document.getElementById("modal-confirm-delete").style.visibility="hidden";
+    });
 
     $("#delete-music-playlist").on("click", function(){
-        updatePlaylist("music", "delete", $("#music-playlist-title").val());   
+        updatePlaylist("music", "delete", $("#music-playlist-title").val());
     });
 
     $("#delete-video-playlist").on("click", function(){
-        updatePlaylist("video", "delete", $("#video-playlist-title").val());   
+        updatePlaylist("video", "delete", $("#video-playlist-title").val());
     });
 
 
     $("#add-music-button").on("click", function(){
-        
+
     })
 });
 
