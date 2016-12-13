@@ -93,7 +93,7 @@ function initCatalogData() {
 // we need to do this because of redraw
 function deleteMusicHandler() {
    $("span.delete-file-button").on("click", function(){
-       var type = $(this).attr("mediaType"); 
+       var type = $(this).attr("mediaType");
        var pl = playlist[type];
        var plTitle = $("#" + type + "-playlist-title").val();
        var name = $($(this).parent().parent().children()[0]).html();
@@ -318,27 +318,28 @@ $("#delete-pmusic-without-confirm").on("click", function(){
         var song = $("#input-add-music").val();
         var playlistTitle = $("#music-playlist-title").val();
         var musicplaylists = playlist.music;
-        
+        var errorSound = new Audio('media/sound/error.mp3');
+        errorSound.play();
         // trigger error message on fail
         if(song.endsWith('.txt'))
-           window.location.hash = "modal-error-music"; 
+           window.location.hash = "modal-error-music";
         else {
             for (var i = 0; i < musicplaylists.length; i++ ){
                if (playlistTitle == musicplaylists[i].title) {
-                    var files = musicplaylists[i].files;         
+                    var files = musicplaylists[i].files;
 
                        // no songs
                        if (!files)
                             musicplaylists[i].files = [];
                        for(var j = 0; j < musicData.length; j++){
-                           if (song.includes(musicData[j].Track)) 
+                           if (song.includes(musicData[j].Track))
                                 musicplaylists[i].files.push(musicData[j]);
                        }
                }
             }
             // redraw playlist
             redrawTable("music", playlistTitle);
-            window.location.hash = "close"; 
+            window.location.hash = "close";
         }
     });
 
@@ -346,37 +347,37 @@ $("#delete-pmusic-without-confirm").on("click", function(){
         var video = $("#input-add-video").val();
         var playlistTitle = $("#video-playlist-title").val();
         var videoplaylists = playlist.video;
-        
+
         // trigger error message on fail
         if(video.endsWith('.txt'))
-           window.location.hash = "modal-error-video"; 
+           window.location.hash = "modal-error-video";
         else {
             for (var i = 0; i < videoplaylists.length; i++ ){
                if (playlistTitle == videoplaylists[i].title) {
-                    var files = videoplaylists[i].files;         
+                    var files = videoplaylists[i].files;
 
                        // no songs
                        if (!files)
                             videoplaylists[i].files = [];
                        for(var j = 0; j < videoData.length; j++){
-                           if (video.includes(videoData[j].Name)) 
+                           if (video.includes(videoData[j].Name))
                                 videoplaylists[i].files.push(videoData[j]);
                        }
                }
             }
             // redraw playlist
             redrawTable("video", playlistTitle);
-            window.location.hash = "close"; 
+            window.location.hash = "close";
         }
     });
 
-    
+
     // on playlist select
     $("#music-playlist-title").change(function(){
         var title = $(this).val();
         redrawTable("music", title);
     });
-    
+
     // on playlist select
     $("#video-playlist-title").change(function(){
         var title = $(this).val();
@@ -387,7 +388,7 @@ $("#delete-pmusic-without-confirm").on("click", function(){
 
 function redrawTable(type, title) {
     var datatable = $('#' + type + '-playlist-table').dataTable().api();
-    
+
     // find the playlist
     for(var i =0; i < playlist[type].length; i ++){
         if(title == playlist[type][i].title){
@@ -396,11 +397,11 @@ function redrawTable(type, title) {
             // check undefined
             if (playlist[type][i].files)
                 datatable.rows.add(playlist[type][i].files);
-            datatable.draw();   
+            datatable.draw();
         }
     }
 
-    
+
 }
 
 $(window).resize(function(){
