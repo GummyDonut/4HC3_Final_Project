@@ -2,7 +2,7 @@
 var playlist;
 var musicData = [];
 var videoData = [];
-var musieTable;
+var musicTable;
 var videoTable;
 
 
@@ -21,6 +21,7 @@ initPlaylistData();
 
 function initCatalogData() {
 	console.log('initCatalogData()');
+    updatePlaylist("music", "update");
     
     musicData.push({"Track":'Lose yourself', "Album":'8 Miles', "Duration":'5:31',"Filename":'Eminem - Lose Yourself.mp3'});
 	musicData.push({"Track":'Imagine', "Album":'John Lennon', "Duration":'3:03',"Filename":'John Lennon - Imagine.mp3'});
@@ -65,6 +66,26 @@ function initCatalogData() {
 	});
 }
 
+// update the playlist table
+function updatePlaylist(playlisttype, action) {
+
+    if (action == "update") {
+        var playlistTitle = $("#music-playlist-title");
+        
+        // remove all options
+        playlistTitle.empty();
+        var music = playlist[playlisttype];
+
+        if (playlist.length == 0)
+            playlistTitle.append("<option>No Playlist</option>")
+        else {
+            for (var i = 0; i < music.length; i++) {
+                playlistTitle.append("<option>" + music[i].title  + "</option>")
+            }
+        }
+    } 
+
+}
 
 $(document).ready(function(){
 	console.log('document.ready()');
@@ -163,13 +184,15 @@ $(document).ready(function(){
                 "title" : input
             });
 
+            updatePlaylist("music", "update");
+
             // trigger close
             window.location.hash = "#close";
         }
     })
 
     $("#add-music-button").on("click", function(){
-
+        
     })
 });
 

@@ -1,4 +1,10 @@
 /* Playlist buttons */
+select.playlist-title {
+    background-color:#6194bc;
+    border:none;
+    font-size:25px;
+    cursor:pointer;
+}
 #add-music-playlist-button{
     width:45px;
     height:27px;
