@@ -62,10 +62,11 @@ function initCatalogData() {
         {"data": "Duration"},
 		{"data": "Filename"},
         ],
-        "data" : videoData
+//        "data" : videoData
 	});
 
     updatePlaylist("music", "update");
+    updatePlaylist("video", "update");
 }
 
 // update the playlist table
@@ -288,6 +289,35 @@ $("#delete-pmusic-without-confirm").on("click", function(){
             }
             // redraw playlist
             redrawTable("music", playlistTitle);
+            window.location.hash = "close"; 
+        }
+    });
+
+    $("#add-video-file-playslist").on("click", function(){
+        var video = $("#input-add-video").val();
+        var playlistTitle = $("#video-playlist-title").val();
+        var videoplaylists = playlist.video;
+        
+        // trigger error message on fail
+        if(video.endsWith('.txt'))
+           window.location.hash = "modal-error-video"; 
+        else {
+            for (var i = 0; i < videoplaylists.length; i++ ){
+               if (playlistTitle == videoplaylists[i].title) {
+                    var files = videoplaylists[i].files;         
+
+                       // no songs
+                       if (!files)
+                            videoplaylists[i].files = [];
+                       for(var j = 0; j < videoData.length; j++){
+                           if (video.includes(videoData[j].Name)) 
+                                videoplaylists[i].files.push(videoData[j]);
+                       }
+               }
+            }
+            // redraw playlist
+            redrawTable("video", playlistTitle);
+            window.location.hash = "close"; 
         }
     });
 
