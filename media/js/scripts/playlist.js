@@ -319,10 +319,11 @@ $("#delete-pmusic-without-confirm").on("click", function(){
         var playlistTitle = $("#music-playlist-title").val();
         var musicplaylists = playlist.music;
         var errorSound = new Audio('media/sound/error.mp3');
-        errorSound.play();
         // trigger error message on fail
-        if(song.endsWith('.txt'))
+        if(song.endsWith('.txt')) {
            window.location.hash = "modal-error-music";
+            errorSound.play();
+        }   
         else {
             for (var i = 0; i < musicplaylists.length; i++ ){
                if (playlistTitle == musicplaylists[i].title) {
