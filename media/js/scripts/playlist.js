@@ -67,24 +67,34 @@ function initCatalogData() {
 }
 
 // update the playlist table
-function updatePlaylist(playlisttype, action) {
+function updatePlaylist(type, action, title) {
+
+    var playlistTitle = $("#" + type + "-playlist-title");
+    var files = playlist[type];
 
     if (action == "update") {
-        var playlistTitle = $("#music-playlist-title");
         
         // remove all options
         playlistTitle.empty();
-        var music = playlist[playlisttype];
 
-        if (playlist.length == 0)
+        if (files.length == 0)
             playlistTitle.append("<option>No Playlist</option>")
         else {
-            for (var i = 0; i < music.length; i++) {
-                playlistTitle.append("<option>" + music[i].title  + "</option>")
+            for (var i = files.length - 1; i > -1; i--) {
+                playlistTitle.append("<option>" + files[i].title  + "</option>")
             }
         }
-    } 
+    } else if (action == "delete") {
 
+        for (var i = 0; i < files.length; i++ ) {
+            var file = files[i];
+            if (file.title == title)
+               files.splice(i, 1);
+        }
+
+        // update playlist table on delete
+        updatePlaylist(type, "update")
+    }
 }
 
 $(document).ready(function(){
@@ -176,7 +186,7 @@ $(document).ready(function(){
         if ((musicArray.length > 0) && musicArray.indexOf(input) > -1){
             $("#error-p").remove();
             $("#modal-add-music-playlist div.modal-div p").append("<p id='error-p' style='color:red;'>That video playlist name exists</p>");
-        }else {
+        } else {
 
             // remove any errors
             $("#error-p").remove();
@@ -189,7 +199,42 @@ $(document).ready(function(){
             // trigger close
             window.location.hash = "#close";
         }
-    })
+    });
+
+    // add playlist event-listener
+    $("#save-video-playlist").on("click", function(){
+        var input = $("#input-video-playlist").val();
+        var videoArray = [];
+        for (var i = 0; i < playlist.video.length; i++) {
+            videoArray.push(playlist.video[i].title);
+        }
+        if ((videoArray.length > 0) && videoArray.indexOf(input) > -1){
+            $("#error-p").remove();
+            $("#modal-add-video-playlist div.modal-div p").append("<p id='error-p' style='color:red;'>That video playlist name exists</p>");
+        } else {
+
+            // remove any errors
+            $("#error-p").remove();
+            playlist.video.push({
+                "title" : input
+            });
+
+            updatePlaylist("video", "update");
+
+            // trigger close
+            window.location.hash = "#close";
+        }
+    });
+
+
+    $("#delete-music-playlist").on("click", function(){
+        updatePlaylist("music", "delete", $("#music-playlist-title").val());   
+    });
+
+    $("#delete-video-playlist").on("click", function(){
+        updatePlaylist("video", "delete", $("#video-playlist-title").val());   
+    });
+
 
     $("#add-music-button").on("click", function(){
         
