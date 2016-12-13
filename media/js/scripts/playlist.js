@@ -22,7 +22,6 @@ initPlaylistData();
 
 function initCatalogData() {
 	console.log('initCatalogData()');
-    updatePlaylist("music", "update");
 
     musicData.push({"Track":'Lose yourself', "Album":'8 Miles', "Duration":'5:31',"Filename":'Eminem - Lose Yourself.mp3'});
 	musicData.push({"Track":'Imagine', "Album":'John Lennon', "Duration":'3:03',"Filename":'John Lennon - Imagine.mp3'});
@@ -44,7 +43,7 @@ function initCatalogData() {
         {"data": "Duration"},
 		{"data": "Filename"},
         ],
-        "data" : musicData
+        //"data" : musicData
 	});
 
 	videoTable =  $("table.table.video-playlist").DataTable({
@@ -65,6 +64,8 @@ function initCatalogData() {
         ],
         "data" : videoData
 	});
+
+    updatePlaylist("music", "update");
 }
 
 // update the playlist table
@@ -78,12 +79,17 @@ function updatePlaylist(type, action, title) {
         // remove all options
         playlistTitle.empty();
 
-        if (files.length == 0)
+        if (files.length == 0) {
             playlistTitle.append("<option>No Playlist</option>")
+            var dataTable = $("#" + type +"-playlist-table").dataTable().api();
+            dataTable.clear();
+            dataTable.draw();
+        }
         else {
             for (var i = files.length - 1; i > -1; i--) {
                 playlistTitle.append("<option>" + files[i].title  + "</option>")
             }
+            redrawTable(type, playlistTitle.val());
         }
     } else if (action == "delete") {
 
@@ -94,7 +100,7 @@ function updatePlaylist(type, action, title) {
         }
 
         // update playlist table on delete
-        updatePlaylist(type, "update")
+        updatePlaylist(type, "update");
     }
 }
 
@@ -258,10 +264,65 @@ $("#delete-pmusic-without-confirm").on("click", function(){
         updatePlaylist("video", "delete", $("#video-playlist-title").val());
     });
 
-    $("#add-music-button").on("click", function(){
+    $("#add-music-file-button").on("click", function(){
+        var song = $("#input-add-music").val();
+        var playlistTitle = $("#music-playlist-title").val();
+        var musicplaylists = playlist.music;
+        
+        // trigger error message on fail
+        if(song.endsWith('.txt'))
+           window.location.hash = "modal-error-music"; 
+        else {
+            for (var i = 0; i < musicplaylists.length; i++ ){
+               if (playlistTitle == musicplaylists[i].title) {
+                    var files = musicplaylists[i].files;         
 
-    })
+                       // no songs
+                       if (!files)
+                            musicplaylists[i].files = [];
+                       for(var j = 0; j < musicData.length; j++){
+                           if (song.includes(musicData[j].Track)) 
+                                musicplaylists[i].files.push(musicData[j]);
+                       }
+               }
+            }
+            // redraw playlist
+            redrawTable("music", playlistTitle);
+        }
+    });
+
+    
+    // on playlist select
+    $("#music-playlist-title").change(function(){
+        var title = $(this).val();
+        redrawTable("music", title);
+    });
+    
+    // on playlist select
+    $("#video-playlist-title").change(function(){
+        var title = $(this).val();
+        redrawTable("video", title);
+    });
+
 });
+
+function redrawTable(type, title) {
+    var datatable = $('#' + type + '-playlist-table').dataTable().api();
+    
+    // find the playlist
+    for(var i =0; i < playlist[type].length; i ++){
+        if(title == playlist[type][i].title){
+            datatable.clear();
+
+            // check undefined
+            if (playlist[type][i].files)
+                datatable.rows.add(playlist[type][i].files);
+            datatable.draw();   
+        }
+    }
+
+    
+}
 
 $(window).resize(function(){
     $("video.media-player").height(window.innerHeight - 5);
