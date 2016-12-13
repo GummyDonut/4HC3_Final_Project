@@ -226,29 +226,37 @@ $(document).ready(function(){
             window.location.hash = "#close";
         }
     });
-$("#delete-without-confirm").on("click", function(){
-    if ($('#confirmbox').is(":checked"))
-        {updatePlaylist("music", "delete", $("#music-playlist-title").val());}
+$("#delete-pmusic-without-confirm").on("click", function(){
+    if ($('#pmusicconfirmbox').is(":checked")||$('#pvideoconfirmbox').is(":checked"))
+
+        {
+
+        document.getElementById("modal-confirm-delete-music-playlist").style.visibility="hidden";
+            updatePlaylist("music", "delete", $("#music-playlist-title").val());
+        }
     });
 
 
     $("#delete-music-playlist-yes").on("click", function(){
         updatePlaylist("music", "delete", $("#music-playlist-title").val());
-        document.getElementById("modal-confirm-delete").style.visibility="hidden";
     });
 
-    $("#delete-music-playlist-no").on("click", function(){
-        document.getElementById("modal-confirm-delete").style.visibility="hidden";
+    // $("#delete-music-playlist").on("click", function(){
+    //     updatePlaylist("music", "delete", $("#music-playlist-title").val());
+    // });
+
+    $("#delete-pvideo-without-confirm").on("click", function(){
+    if ($('#pvideoconfirmbox').is(":checked")||$('#pmusicconfirmbox').is(":checked"))
+        {
+
+        document.getElementById("modal-confirm-delete-video-playlist").style.visibility="hidden";
+            updatePlaylist("video", "delete", $("#video-playlist-title").val());
+    }
     });
 
-    $("#delete-music-playlist").on("click", function(){
-        updatePlaylist("music", "delete", $("#music-playlist-title").val());
-    });
-
-    $("#delete-video-playlist").on("click", function(){
+    $("#delete-video-playlist-yes").on("click", function(){
         updatePlaylist("video", "delete", $("#video-playlist-title").val());
     });
-
 
     $("#add-music-button").on("click", function(){
 

@@ -21,8 +21,8 @@
             <tr>
                 <td id="music-playlist-section" valign="top" width="25%" class="playlist-table">
                     <div class="title-bar">
-                    <a href="#modal-confirm-delete">
-                    <span id="delete-without-confirm" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
+                    <a href="#modal-confirm-delete-music-playlist">
+                    <span id="delete-pmusic-without-confirm" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
                     </a>
                     <select class="playlist-title" id="music-playlist-title">
                         <option>No playlist</option>
@@ -79,7 +79,9 @@
             <tr>
                 <td width="25%" id="video-playlist-section" class="playlist-table">
                     <div class="title-bar">
-                        <span id="delete-video-playlist" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
+                    <a href="#modal-confirm-delete-video-playlist">
+                        <span id="delete-pvideo-without-confirm" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
+                    </a>
                         <select class="playlist-title" id="video-playlist-title">
                             <option>No playlist</option>
                         </select> 
@@ -173,6 +175,9 @@
         </div>
     </div>
 
+
+
+
 <div id="modal-error-music" class="modalDialog">
         <div>
             <div class="modal-title">
@@ -205,6 +210,9 @@
             </div>
         </div>
     </div>
+
+
+
     <div id="modal-add-video-playlist" class="modalDialog">
         <div>
             <div class="modal-title">
@@ -224,8 +232,8 @@
     </div>
 
 
-    <!-- confirmation message for deleting a playlist -->
- <div id="modal-confirm-delete" class="modalDialog">
+    <!-- confirmation message for deleting a music playlist -->
+ <div id="modal-confirm-delete-music-playlist" class="modalDialog">
         <div>
             <div class="modal-title">
                 <a href="#close" title="Close" class="close">X</a>
@@ -237,7 +245,7 @@
                 <img src="media/images/trashcan.png"style="width:50px;height:50px;">
                    Are you sure you want to delete the playlist? 
                 </p>
-                <input  type="checkbox" id = "confirmbox" name="vehicle" value="Bike">
+                <input  type="checkbox" id = "pmusicconfirmbox" name="vehicle" value="Bike">
                 <p>Don't show this message again.</p>
             </div>
             <div class="modal-btm-button text-right">
@@ -246,6 +254,36 @@
             </div>
         </div>
     </div>
+
+ <!-- confirmation message for deleting a video playlist -->
+ <div id="modal-confirm-delete-video-playlist" class="modalDialog">
+        <div>
+            <div class="modal-title">
+                <a href="#close" title="Close" class="close">X</a>
+            </div>
+            <div class="modal-div text-center">
+                <br>
+                <br>
+                <p>
+                <img src="media/images/trashcan.png"style="width:50px;height:50px;">
+                   Are you sure you want to delete the playlist? 
+                </p>
+                <input  type="checkbox" id = "pvideoconfirmbox" name="vehicle" value="Bike">
+                <p>Don't show this message again.</p>
+            </div>
+            <div class="modal-btm-button text-right">
+                <a style="color:white;" href="#close"> <button id="delete-video-playlist-yes" >Yes</button> </a>
+                <a style="color:white;" href="#close"> <button id="delete-video-playlist-no" >No</button> </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
 </body>
 </html>
