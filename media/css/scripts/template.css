@@ -11,7 +11,10 @@
     transition: 0.2s
 }
 
-/* Playlist content end here*/
+.disabled {
+    opacity:0.4;
+    pointer-events: none;
+}
 
 .main-container {
     width:100%;

@@ -11,8 +11,6 @@
 <link rel="stylesheet" type="text/css" href="media/css/scripts/media-player.css">
 <link rel="stylesheet" type="text/css" href="media/css/scripts/playlist.css">
 <link rel="stylesheet" type="text/css" href="media/css/scripts/modal.css">
-<script src="media/js/scripts/playlist.js"></script>
-<script src="media/js/scripts/media-player.js"></script>
 </head>
 
 <body>
@@ -21,7 +19,7 @@
             <tr>
                 <td id="music-playlist-section" valign="top" width="25%" class="playlist-table">
                     <div class="title-bar">
-                    <a href="#modal-confirm-delete-music-playlist">
+                    <a class="disabled" href="#modal-confirm-delete-music-playlist">
                     <span id="delete-pmusic-without-confirm" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
                     </a>
                     <select class="playlist-title" id="music-playlist-title">
@@ -31,7 +29,7 @@
                         <a href="#modal-add-music-playlist">
                             <img class="enlarge-button" id="add-music-playlist-button" src="media/images/Add_playlist.png"></img>
                         </a>
-                         <a href="#modal-add-music">
+                         <a class="disabled" href="#modal-add-music">
                         <span id="add-music-button" style= "color:white"class="enlarge-button glyphicon glyphicon-plus"></span>
                         </a>
                         <img class="enlarge-button" id="fullscreen-music-table-button" src="media/images/fullscreen.png"></img>
@@ -79,7 +77,7 @@
             <tr>
                 <td width="25%" id="video-playlist-section" class="playlist-table">
                     <div class="title-bar">
-                    <a href="#modal-confirm-delete-video-playlist">
+                    <a class="disabled" href="#modal-confirm-delete-video-playlist">
                         <span id="delete-pvideo-without-confirm" class=" delete-playlist-button enlarge-button glyphicon glyphicon-minus"></span>
                     </a>
                         <select class="playlist-title" id="video-playlist-title">
@@ -89,7 +87,7 @@
                         <a href="#modal-add-video-playlist">
                             <img class="enlarge-button" id="add-video-playlist-button" src="media/images/Add_playlist.png"></img>
                         </a>
-                         <a href="#modal-add-video">
+                         <a class="disabled" href="#modal-add-video">
                         <span id="add-video-button" style="color:white" class="enlarge-button glyphicon glyphicon-plus"></span>
                         </a>
                         <img class="enlarge-button" id="fullscreen-video-table-button" src="media/images/fullscreen.png"></img>
@@ -309,5 +307,8 @@
 
 
 </body>
+<script src="media/js/scripts/playlist.js"></script>
+<script src="media/js/scripts/media-player.js"></script>
+
 </html>
 

@@ -158,11 +158,16 @@ function updatePlaylist(type, action, title) {
             var dataTable = $("#" + type +"-playlist-table").dataTable().api();
             dataTable.clear();
             dataTable.draw();
+            $("#add-"+ type +"-button").parent().addClass("disabled");
+            $("#delete-p" + type + "-without-confirm").addClass("disabled");
         }
         else {
             for (var i = files.length - 1; i > -1; i--) {
                 playlistTitle.append("<option>" + files[i].title  + "</option>")
             }
+            $("#add-" + type + "-button").parent().removeClass("disabled");
+            $("#delete-p" + type + "-without-confirm").parent().removeClass("disabled");
+
             redrawTable(type, playlistTitle.val());
         }
     } else if (action == "delete") {
