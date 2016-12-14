@@ -5,6 +5,10 @@ var videoData = [];
 var musicTable;
 var videoTable;
 var confirmMessage = true;
+var rowToDelete;
+var playlistFilesWorking;
+var globalType;
+var globalTitle;
 
 
 function initPlaylistData() {
@@ -104,19 +108,39 @@ function deleteMusicHandler() {
                 var files = pl[i].files
                 for ( var j = 0; j < files.length; j++) {
                     if(type == "music"){
-                        if(name == files[j].Track)
-                            files.splice(j,1);
+                        if(name == files[j].Track) {
+                            if ($('#pfileconfirmbox').is(":checked")||$('#pmusicconfirmbox').is(":checked")||$('#pvideoconfirmbox').is(":checked")) {
+                                files.splice(j,1);
+                            }
+                            else {
+                                window.location.hash = "modal-confirm-delete-file";
+                                rowToDelete = j;
+                                playlistFilesWorking = files;
+                                globalType = type;
+                                globalTitle = plTitle ;
+                            }
+
+                        }
                     }
                     else if(type == "video"){
-                        if(name == files[j].Name)
-                            files.splice(j,1);
+                        if(name == files[j].Name) {
+                            if ($('#pfileconfirmbox').is(":checked")||$('#pmusicconfirmbox').is(":checked")||$('#pvideoconfirmbox').is(":checked")) {
+                                files.splice(j,1);
+                            } else {
+                                window.location.hash = "modal-confirm-delete-file";
+                                rowToDelete = j;
+                                playlistFilesWorking = files;
+                                globalType = type;
+                                globalTitle = plTitle ;
+                            }
+                        }
                     }
                 }
             }
        }
        redrawTable(type, plTitle);
    });
-}
+};
 
 // update the playlist table
 function updatePlaylist(type, action, title) {
@@ -289,7 +313,7 @@ $(document).ready(function(){
         }
     });
 $("#delete-pmusic-without-confirm").on("click", function(){
-    if ($('#pmusicconfirmbox').is(":checked")||$('#pvideoconfirmbox').is(":checked"))
+    if ($('#pfileconfirmbox').is(":checked")||$('#pmusicconfirmbox').is(":checked")||$('#pvideoconfirmbox').is(":checked"))
 
         {
 
@@ -308,7 +332,7 @@ $("#delete-pmusic-without-confirm").on("click", function(){
     // });
 
     $("#delete-pvideo-without-confirm").on("click", function(){
-    if ($('#pvideoconfirmbox').is(":checked")||$('#pmusicconfirmbox').is(":checked"))
+    if ($('#pfileconfirmbox').is(":checked")||$('#pvideoconfirmbox').is(":checked")||$('#pmusicconfirmbox').is(":checked"))
         {
 
         document.getElementById("modal-confirm-delete-video-playlist").style.visibility="hidden";
@@ -378,6 +402,11 @@ $("#delete-pmusic-without-confirm").on("click", function(){
         }
     });
 
+    // code for deleting file modal
+    $("#delete-file-yes").on("click", function(){
+        playlistFilesWorking.splice(rowToDelete,1);
+        redrawTable(globalType, globalTitle);
+    });
 
     // on playlist select
     $("#music-playlist-title").change(function(){
