@@ -224,9 +224,9 @@ $(document).ready(function(){
 	$("div.player-container").height(window.innerHeight*0.70);
 	$("div.player-progress").css("top",window.innerHeight*0.50);
 	$("div.media-controls").css("top",window.innerHeight*0.55);
-	$("div.player-container").width($("video.media-player").width());
-	$("#progress-bar").width($("video.media-player").width());
-	$("div.media-controls").width($("video.media-player").width());
+	$("div.player-container").width($("video.media-player").width()-45);
+	$("#progress-bar").width($("video.media-player").width() -70);
+	$("div.media-controls").width($("#media-video").width() -60);
 
     // fullscreen table button
     $("#fullscreen-music-table-button").on("click", function(){
