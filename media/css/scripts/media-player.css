@@ -28,6 +28,15 @@ body {
 	border: none;
 }
 
+.vol-control{
+	position:absolute;
+	top:25px;
+	left:21%;
+	width:100px !important;
+	background-color: #606060;
+	border: none;
+}
+
 .media-inc-volume {
  position:absolute;
  top: 10px;

@@ -62,8 +62,11 @@ function initMediaPlayer() {
 	// need to work on this one more...how to know it's muted?
 	mediaPlayer.addEventListener('volumechange', function(e) { 
 		// Update the button to be mute/unmute
-		if (mediaPlayer.muted) changeButtonType(muteBtn, 'unmute');
-		else changeButtonType(muteBtn, 'mute');
+		if (mediaPlayer.muted) {
+			changeButtonType(muteBtn, 'unmute');
+		}else{
+			changeButtonType(muteBtn, 'mute');
+		}
 	}, false);	
 	
 	mediaPlayer.addEventListener('ended', function() { 
@@ -120,10 +123,14 @@ function stopPlayer() {
 }
 
 // Changes the volume on the media player
-function changeVolume(direction) {
-	if (direction === '+') mediaPlayer.volume += mediaPlayer.volume == 1 ? 0 : 0.1;
-	else mediaPlayer.volume -= (mediaPlayer.volume == 0 ? 0 : 0.1);
-	mediaPlayer.volume = parseFloat(mediaPlayer.volume).toFixed(1);
+function changeVolume(volumeValue) {
+	/*if (volumeValue === '+') {
+		mediaPlayer.volume += (mediaPlayer.volume == 1 ? 0 : 0.1);
+	}else{
+		mediaPlayer.volume -= (mediaPlayer.volume == 0 ? 0 : 0.1);
+	}
+	mediaPlayer.volume = parseFloat(mediaPlayer.volume).toFixed(1);*/
+	mediaPlayer.volume = volumeValue/100;
 }
 
 /*
