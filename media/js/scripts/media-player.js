@@ -39,7 +39,7 @@ function initMediaPlayer() {
 		console.log(mevent.button+' '+mevent.clientX+' '+mevent.clientY+' '+mevent.screenX+' '+mevent.screenY+' '+mevent.offsetX+' '+mevent.offsetY);
 
 		var duration = mediaPlayer.duration;
-		var currentTime = (duration * mevent.offsetX ) / 960;
+		var currentTime = (duration * mevent.offsetX ) / $('#progress-bar').width();
 		mediaPlayer.currentTime = currentTime;
 
 	});

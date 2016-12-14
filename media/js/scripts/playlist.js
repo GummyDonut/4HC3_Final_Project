@@ -201,6 +201,8 @@ $(document).ready(function(){
 	$("div.player-progress").css("top",window.innerHeight*0.50);
 	$("div.media-controls").css("top",window.innerHeight*0.55);
 	$("div.player-container").width($("video.media-player").width());
+	$("#progress-bar").width($("video.media-player").width());
+	$("div.media-controls").width($("video.media-player").width());
 
     // fullscreen table button
     $("#fullscreen-music-table-button").on("click", function(){
@@ -415,6 +417,8 @@ $(window).resize(function(){
 	$("div.player-progress").css("top",window.innerHeight*0.50);
 	$("div.media-controls").css("top",window.innerHeight*0.55);
 	$("div.player-container").width($("video.media-player").width() + 45);
+	$("#progress-bar").width($("video.media-player").width());
+	$("div.media-controls").width($("video.media-player").width());
 });
 
 // when user leaves save data

@@ -11,6 +11,71 @@ body {
 	width:960px;
 	height: 76px;
 }
+
+.media-fullscreen {
+	position:absolute;
+	top: 10px;
+	left: 0%;
+	background-color: #606060;
+	border: none;
+}
+
+.media-mute {
+	position:absolute;
+	top: 10px;
+	left: 12%;
+	background-color: #606060;
+	border: none;
+}
+
+.media-inc-volume {
+ position:absolute;
+ top: 10px;
+ left: 20%;
+ background-color: #606060;
+border: none;
+}
+
+.media-dec-volume {
+ position:absolute;
+ top: 10px;
+ left: 30%;
+ background-color: #606060;
+border: none;
+}
+
+.media-reverse {
+	position:absolute;
+	top: 10px;
+	left: 42%;
+	background-color: #606060;
+	border: none;
+}
+
+.media-play {
+	position:absolute;
+	top: 10px;
+	left: 50%;
+	background-color: #606060;
+	border: none;
+}
+
+.media-fastforward {
+	position:absolute;
+	top: 10px;
+	left: 58%;
+	background-color: #606060;
+	border: none;
+}
+
+.media-replay {
+	position:absolute;
+	top: 10px;
+	left: 90%;
+	background-color: #606060;
+	border: none;
+}
+
 .reverse {
 }
 
@@ -18,66 +83,11 @@ h1 {
 	font-size:16px;
 	color:#333;
 }
-.media-fullscreen {
- position:absolute;
- top: 10px;
- left: 10px;
- background-color: #606060;
-border: none;
-}
-.media-replay {
- position:absolute;
- top: 10px;
- left: 890px;
- background-color: #606060;
-border: none;
-}
 
-.media-mute {
- position:absolute;
- top: 10px;
- left: 80px;
- background-color: #606060;
-border: none;
-}
-.media-inc-volume {
- position:absolute;
- top: 10px;
- left: 150px;
- background-color: #606060;
-border: none;
-}
-.media-dec-volume {
- position:absolute;
- top: 10px;
- left: 210px;
- background-color: #606060;
-border: none;
-}
-
-
-.media-reverse {
- position:absolute;
- top: 10px;
- left: 410px;
- background-color: #606060;
-border: none;
-}
-
-.media-play {
- position:absolute;
- top: 10px;
- left: 480px;
- background-color: #606060;
-border: none;
-}
-
-.media-fastforward {
- position:absolute;
- top: 10px;
- left: 550px;
- background-color: #606060;
-border: none;
+.media-video{
+	width:960px;
+	height:600px;
+	border: 0px solid #ff0000;	
 }
 
 
@@ -90,16 +100,8 @@ border: none;
 div.player-progress{
 	position:absolute; 
 	top:590px;
-	
 }
 
-
-.media-video{
-	width:960px;
-	height:600px;
-	border: 0px solid #ff0000;
-	
-}
 
 div.media-controls {
 	border: none;
@@ -136,19 +138,19 @@ div.media-controls {
 }
 
 progress {
- font-size:12px;
- width:960px;
- height:30px;
- border: 1px solid #000000;
+	font-size:12px;
+	width:960px;
+	height:30px;
+	border: 1px solid #000000;
 
 }
 progress::-moz-progress-bar { background:#ffffff; }
 
 progress::-webkit-progress-bar {
-  background:#c3c3c3;
-  color:#86c317;
+	background:#c3c3c3;
+	color:#86c317;
 }
 progress::-webkit-progress-value {
-  background:#86c317;
-  color:#ffffff;
+	background:#86c317;
+	color:#ffffff;
 }
