@@ -80,6 +80,7 @@ border: none;
 border: none;
 }
 
+
 .media-player{
 	position:absolute; 
 	top:0px;
@@ -96,7 +97,6 @@ div.player-progress{
 
 .media-video{
 	position: absolute;
-	top:-150px;
 	width:960px;
 	height:600px;
 	border: 0px solid #ff0000;

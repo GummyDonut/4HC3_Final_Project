@@ -196,7 +196,7 @@ $(document).ready(function(){
  	} );
 
     // on load update to fit into screen appropriately
-    $('#media-video').height(window.innerHeight -5);
+    $('#media-video').height(window.innerHeight*0.50);
 
     // fullscreen table button
     $("#fullscreen-music-table-button").on("click", function(){
@@ -406,7 +406,7 @@ function redrawTable(type, title) {
 }
 
 $(window).resize(function(){
-    $("video.media-player").height(window.innerHeight - 5);
+    $("video.media-player").height(window.innerHeight*0.50);
 });
 
 // when user leaves save data
