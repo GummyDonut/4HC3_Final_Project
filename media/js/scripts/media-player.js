@@ -214,8 +214,9 @@ function addMediaPlaying() {
 	if (mediaPlaying == null) {
 		mediaPlaying = document.createElement("img");
 		mediaPlaying.setAttribute("src", "media/images/bar.gif");
-		mediaPlaying.setAttribute("height", "600");
-		mediaPlaying.setAttribute("width", "960");
+		mediaPlaying.setAttribute("id", "music-bars-gif");
+		mediaPlaying.setAttribute("height", $("#media-video").height());
+		mediaPlaying.setAttribute("width", $("#media-video").width());
 		jpgCtrl.appendChild(mediaPlaying);
 	}
 	mediaPlayer.play();

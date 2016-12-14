@@ -445,9 +445,13 @@ $(window).resize(function(){
 	$("div.player-container").height(window.innerHeight*0.70);
 	$("div.player-progress").css("top",window.innerHeight*0.50);
 	$("div.media-controls").css("top",window.innerHeight*0.55);
-	$("div.player-container").width($("video.media-player").width() + 45);
-	$("#progress-bar").width($("video.media-player").width());
-	$("div.media-controls").width($("video.media-player").width());
+    var videoPlayerWidth = $("video.media-player").width();
+    var videoPlayerHeight= $("video.media-player").height();
+	$("div.player-container").width( videoPlayerWidth + 45);
+	$("#progress-bar").width(videoPlayerWidth);
+	$("div.media-controls").width(videoPlayerWidth);
+    $("#music-bars-gif").width(videoPlayerWidth);
+    $("#music-bars-gif").height(videoPlayerHeight);
 });
 
 // when user leaves save data
