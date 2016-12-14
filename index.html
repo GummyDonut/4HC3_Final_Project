@@ -62,16 +62,16 @@
 								<progress id="progress-bar" min="0" max="100" value="0">0% played</progress>
 					   </div>
 					   <div class="media-controls">
-							<button id="reverse-button" class="media-reverse" title="reverse" onclick='rewind(1.5)'><img src='media/images/rev24.png'></button>
-							<button id="play-pause-button" class="media-play" title="play" onclick="togglePlayPause();"><img id="playpause" src='media/images/play24.png'></button>
+							<button id="reverse-button" class="enlarge-button media-reverse" title="reverse" onclick='rewind(1.5)'><img src='media/images/rev24.png'></button>
+							<button id="play-pause-button" class="enlarge-button media-play" title="play" onclick="togglePlayPause();"><img id="playpause" src='media/images/play24.png'></button>
 							<!-- <button id="stop-button" class="media-btn" title="stop" onclick="stopPlayer();"><img src='media/images/stop24.png'></button> -->
-							<button id="cue-button" class="media-fastforward" title="cue" value="FF" onclick='slowmotion(0.2)'><img src='media/images/ff24.png'></button>
+							<button id="cue-button" class="enlarge-button media-fastforward" title="cue" value="FF" onclick='slowmotion(0.2)'><img src='media/images/ff24.png'></button>
 							<!--<button id="volume-inc-button" class="media-inc-volume" title="increase volume" onclick='changeVolume("+");'><img src='media/images/plus24.png'></button>-->
 							<!--<button id="volume-dec-button" class="media-dec-volume" title="decrease volume" onclick='changeVolume("-");'><img src='media/images/minus24.png'></button>-->
                             <input id="vol-control" class="vol-control" type="range" min="0" max="100" step="1" oninput="changeVolume(this.value)" onchange="changeVolume(this.value)"></input>				
-                            <button id="replay-button" class="media-replay" title="replay" onclick="replayMedia();"><img src='media/images/replay24.png'></button>	
-							<button id="mute-button" class="media-mute" title="mute" onclick='toggleMute("true");'><img id="muteunmute" src='media/images/mute24.png'></button>
-							<button class="media-fullscreen"  title="full" onclick='fullScreen();'><img src='media/images/full.png'></button>
+                            <button id="replay-button" class="enlarge-button media-replay" title="replay" onclick="replayMedia();"><img src='media/images/replay24.png'></button>	
+							<button id="mute-button" class="enlarge-button media-mute" title="mute" onclick='toggleMute("true");'><img id="muteunmute" src='media/images/mute24.png'></button>
+							<button class="enlarge-button media-fullscreen"  title="full" onclick='fullScreen();'><img src='media/images/full.png'></button>
 						</div>
 					</div>
                 </td>

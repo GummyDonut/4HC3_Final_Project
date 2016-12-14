@@ -16,7 +16,7 @@ body {
 	position:absolute;
 	top: 10px;
 	left: 0%;
-	background-color: #606060;
+	background-color: transparent;
 	border: none;
 }
 
@@ -24,7 +24,7 @@ body {
 	position:absolute;
 	top: 10px;
 	left: 12%;
-	background-color: #606060;
+	background-color: transparent;
 	border: none;
 }
 
@@ -33,15 +33,16 @@ body {
 	top:25px;
 	left:21%;
 	width:100px !important;
-	background-color: #606060;
+	background-color: transparent;
 	border: none;
+    cursor: pointer;
 }
 
 .media-inc-volume {
  position:absolute;
  top: 10px;
  left: 20%;
- background-color: #606060;
+ background-color: transparent;
 border: none;
 }
 
@@ -49,7 +50,7 @@ border: none;
  position:absolute;
  top: 10px;
  left: 30%;
- background-color: #606060;
+ background-color: transparent;
 border: none;
 }
 
@@ -57,7 +58,7 @@ border: none;
 	position:absolute;
 	top: 10px;
 	left: 42%;
-	background-color: #606060;
+	background-color: transparent;
 	border: none;
 }
 
@@ -65,7 +66,7 @@ border: none;
 	position:absolute;
 	top: 10px;
 	left: 50%;
-	background-color: #606060;
+	background-color: transparent;
 	border: none;
 }
 
@@ -73,7 +74,7 @@ border: none;
 	position:absolute;
 	top: 10px;
 	left: 58%;
-	background-color: #606060;
+	background-color: transparent;
 	border: none;
 }
 
@@ -81,7 +82,7 @@ border: none;
 	position:absolute;
 	top: 10px;
 	left: 90%;
-	background-color: #606060;
+	background-color: transparent;
 	border: none;
 }
 
@@ -117,7 +118,7 @@ div.media-controls {
 	display: flex;
 	padding: 1px;
 	color: gray;
-	background-color: #606060;
+	background-color: transparent;
 	padding: 0px;
 	position: absolute;
 	top:620px;
@@ -130,7 +131,7 @@ div.media-controls {
 	width:960px;
 	height:700px;
 	position:relative;
-	background-color: #606060;
+	background-color:#606060;
 }
 .media-title {
 	position: relative;
