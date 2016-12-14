@@ -200,6 +200,7 @@ $(document).ready(function(){
 	$("div.player-container").height(window.innerHeight*0.70);
 	$("div.player-progress").css("top",window.innerHeight*0.50);
 	$("div.media-controls").css("top",window.innerHeight*0.55);
+	$("div.player-container").width($("video.media-player").width());
 
     // fullscreen table button
     $("#fullscreen-music-table-button").on("click", function(){
@@ -208,7 +209,7 @@ $(document).ready(function(){
 
         // set to new width
         $("div.main-container").toggleClass("table-fullscreen");
-
+  
         // fullscreen table
         if ($("div.main-container").hasClass("table-fullscreen")) {
             $("#music-playlist-table").width(window.innerWidth-5)
@@ -413,6 +414,7 @@ $(window).resize(function(){
 	$("div.player-container").height(window.innerHeight*0.70);
 	$("div.player-progress").css("top",window.innerHeight*0.50);
 	$("div.media-controls").css("top",window.innerHeight*0.55);
+	$("div.player-container").width($("video.media-player").width() + 45);
 });
 
 // when user leaves save data
