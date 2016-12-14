@@ -45,7 +45,7 @@ function initCatalogData() {
             {
                 "targets": [ 2 ],
                 "render": function ( data, type, row ) {
-                    return  data + '<span mediaType="music" style="float:right;" class=" delete-file-button glyphicon glyphicon-minus"></span>';
+                    return  data + '<span mediaType="music" style="float:right;" class="enlarge-button delete-file-button glyphicon glyphicon-minus"></span>';
                 },
             }
         ],
@@ -70,7 +70,7 @@ function initCatalogData() {
             {
                 "targets": [ 1 ],
                 "render": function ( data, type, row ) {
-                    return  data + '<span mediaType="video" style="float:right;" class=" delete-file-button glyphicon glyphicon-minus"></span>';
+                    return  data + '<span mediaType="video" style="float:right;" class="enlarge-button delete-file-button glyphicon glyphicon-minus"></span>';
                 },
             }
         ],
@@ -159,7 +159,7 @@ function updatePlaylist(type, action, title) {
             dataTable.clear();
             dataTable.draw();
             $("#add-"+ type +"-button").parent().addClass("disabled");
-            $("#delete-p" + type + "-without-confirm").addClass("disabled");
+            $("#delete-p" + type + "-without-confirm").parent().addClass("disabled");
         }
         else {
             for (var i = files.length - 1; i > -1; i--) {
@@ -244,10 +244,12 @@ $(document).ready(function(){
         // fullscreen table
         if ($("div.main-container").hasClass("table-fullscreen")) {
             $("#music-playlist-table").width(window.innerWidth-5)
+            $("div.main-container").css("left", "0%");
             $("#fullscreen-music-table-button").attr("src", "media/images/min.png")
         } else {
             $("#music-playlist-table").width(tableWidth);
             $("#fullscreen-music-table-button").attr("src", "media/images/fullscreen.png")
+            $("div.main-container").css("left", "10%");
         }
     });
 
@@ -261,10 +263,12 @@ $(document).ready(function(){
         // fullscreen table
         if ($("div.main-container").hasClass("table-fullscreen")) {
             $("#video-playlist-table").width(window.innerWidth-5)
-            $("#fullscreen-video-table-button").attr("src", "media/images/min.png")
+            $("div.main-container").css("left", "0%");
+            $("#fullscreen-video-table-button").attr("src", "media/images/min.png");
         } else {
             $("#video-playlist-table").width(tableWidth);
             $("#fullscreen-video-table-button").attr("src", "media/images/fullscreen.png")
+            $("div.main-container").css("left", "10%");
         }
     });
 
