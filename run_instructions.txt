@@ -1,0 +1,12 @@
+Instruction on how to run the media player
+
+1. Unzip the zip file, by right clicking the choosing extract here.
+2. Enter the newly created folder named, "4HC3_Final_Project"
+3. Find the index.html folder and right click, hit open with and choose Google Chrome, note videos do not play in Mozilla Firefox or Internet Explorer. Use Google chrome please...
+
+If all else fails go to link : https://lantern77.github.io/4HC3_Final_Project/
+in Google Chrome
+
+If you do not have chrome please download it https://www.google.com/chrome/browser/desktop/index.html 
+Its very easy to install.
+
